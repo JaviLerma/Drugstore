@@ -6,7 +6,7 @@
 	$sql = "Select U.Contrasenia from Usuario U Where U.Nombre = '".$usuario."'";
 	//$sql = "Select U.Contrasenia from Usuario U Where U.Nombre = 'admin'";
 	$resultadoQuery = $conexiondb->query($sql);
-	echo $conexiondb->error;
+	
 	if($resultadoQuery->num_rows > 0){
 		$fila = $resultadoQuery->fetch_assoc();
 		if($password == $fila["Contrasenia"]){
@@ -14,9 +14,10 @@
 			$_SESSION['usuario'] = $usuario;
 			header("Location: http://localhost/index.php");
 		}else{
-			echo "entre";
 			header("Location: http://localhost/Clase1/login.php"); // echo "Datos inválidos";
 		}
 	}
+	else
+	header("Location: http://localhost/Clase1/login.php"); // echo "Datos inválidos";
 	$conexiondb->close();
 ?>
