@@ -8,7 +8,7 @@
 			<table>
 				<tr>
 					<td> Usuario </td>
-					<td><input type="text" id "idUsuario" name="nUsuario"></td><td></td>
+					<td><input type="text" id="idUser" name="nUser"></td><td></td>
 				</tr>
 				<tr>
 					<td>Contraseña</td>

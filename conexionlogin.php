@@ -1,5 +1,5 @@
 <?php
-$conexiondb=new mysqli("localhost","root","","dragstore");
+$conexiondb=new mysqli("localhost","root","","drugstore");
 	if($conexiondb->connect_error){
 		die("Ocurrió un error al intentar conectar la db");
 	}
