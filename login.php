@@ -1,6 +1,6 @@
 <html>
 	<head>
-	
+		<title>Login</title>
 	</head>
 	
 	<body>
@@ -15,6 +15,12 @@
 					<td><input type="password" id="idPassword" name="nPassword" required></td>
 					<td><input type="submit" name="nSubmit" id="idSubmit" value="Ingresar"></td>
 				</tr>
-			</table>	
+			</table>
+   		<?php
+       		if(isset($_GET["login"]) && $_GET["login"] == 'false'){
+          		echo "<div style='color:red'>Usuario o contraseña invalido </div>";
+       		}
+     	?>
 		</form>
 	</body>				
+</html>

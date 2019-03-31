@@ -13,10 +13,11 @@
 			$_SESSION['usuario'] = $usuario;
 			header("Location: http://localhost/index.php");
 		}else{
-			header("Location: http://localhost/Clase1/login.php"); // echo "Datos inválidos";
+			//$_SESSION['logueado'] = false;
+			header("Location: http://localhost/Clase1/login.php?login=false"); // ?login=false -> esto avisa del fallo
 		}
 	}
 	else
-	header("Location: http://localhost/Clase1/login.php"); // echo "Datos inválidos";
+	header("Location: http://localhost/Clase1/login.php?login=false");
 	$conexiondb->close();
 ?>
