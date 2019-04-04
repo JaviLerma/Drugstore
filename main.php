@@ -1,9 +1,9 @@
 <?php	
 	session_start();
 	require 'conexionlogin.php';
-	$usuario = $_GET["nUser"];
+	$usuario = $_GET["nUsuario"];
 	$password = $_GET["nPassword"];
-	$sql = "Select U.pass from Users U Where U.user = '".$usuario."'";
+	$sql = "Select U.pass from Usuarios U Where U.usuario = '".$usuario."'";
 	//$sql = "Select U.Contrasenia from Usuario U Where U.Nombre = 'admin'";
 	$resultadoQuery = $conexiondb->query($sql);
 	if($resultadoQuery->num_rows > 0){
