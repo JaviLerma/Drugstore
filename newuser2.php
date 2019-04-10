@@ -1,15 +1,18 @@
 <?php
 	session_start();
 	require 'conexionlogin.php';
-	$nuevo_usuario = $_GET["nUsuario"];
+	$usuario = $_GET["nUsuario"];
 	$contrasenia = $_GET["nContrasenia"];
-	$usuarios_existentes = "Select U.usuario from usuarios ";
-	$resultadoQuery = $conexiondb->query($usuarios_existentes);
-	$fila = $resultadoQuery->fetch_assoc();
-	if($nuevo_usuario == $fila[] ){
-		echo "capo";
+	$nombre_apellido = $_GET["nNom_Ape"];
+	$nuevo_usuario = "SELECT U.usuario FROM usuarios U WHERE U.usuario = '".$usuario."'";
+	$resultadoQuery = $conexiondb->query($nuevo_usuario);
+	if($resultadoQuery->num_rows > 0){
+		echo "usuario existente";
+	} else {
+		$sql = "INSERT INTO usuarios(nombre_apellido, usuario, contrasenia) VALUES ('".$nombre_apellido."', '".$usuario."', '".$contrasenia."')";
+		if($conexiondb->query($sql) === TRUE){
+			echo "Usuario Creado exitosamente";
+		}
 	}
-	//echo "$usuario";
-
-	
+	$conexiondb->close();
 ?>

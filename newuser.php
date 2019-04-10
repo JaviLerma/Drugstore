@@ -24,8 +24,12 @@
 				<tr>
 					<td>Contraseña</td>
 					<td><input type="password" id="idContrasenia" name="nContrasenia" required value="****" onclick="this.value='';" onblur="this.value=(this.value=='')?'****':this.value;"></td>
-                    <td><input type="submit" name="nSubmit" id="idSubmit" value="Crear"></td>
 					
+				</tr>
+				<tr>
+					<td>Nombre y Apellido</td>
+					<td><input type="text" id="idNom_Ape" name="nNom_Ape" required value=""></td>
+					<td><input type="submit" name="nSubmit" id="idSubmit" value="Crear"></td>
 				</tr>
 			</table>
 		</form>
