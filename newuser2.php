@@ -16,3 +16,5 @@
 	}
 	$conexiondb->close();
 ?>
+
+//como resetear el ID de la tabla para q empiece de 1 ??
