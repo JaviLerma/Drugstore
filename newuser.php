@@ -13,8 +13,8 @@
 	</head>
 	
 	<body>
-		<header>Iniciar Sesion</header>
-		<form action="cheking.php" method="GET">
+		<header>Nuevo Usuario</header>
+		<form action="newuser2.php" method="GET">
 			<table>
 				<tr>
 					<td>Usuario</td>
@@ -24,17 +24,10 @@
 				<tr>
 					<td>Contraseña</td>
 					<td><input type="password" id="idContrasenia" name="nContrasenia" required value="****" onclick="this.value='';" onblur="this.value=(this.value=='')?'****':this.value;"></td>
+                    <td><input type="submit" name="nSubmit" id="idSubmit" value="Crear"></td>
 					
 				</tr>
-				<tr>
-					<td><input type="submit" name="nSubmit" id="idSubmit" value="Ingresar"></td>
-				</tr>
 			</table>
-   		<?php
-       		if(isset($_GET["login"]) && $_GET["login"] == 'false'){
-          		echo "<div style='color:red'>Usuario o contraseña invalido </div>";
-       		}
-     	?>
 		</form>
 	</body>				
 </html>
