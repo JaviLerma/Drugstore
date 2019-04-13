@@ -14,7 +14,7 @@
 	
 	<body>
 		<header>Nuevo Usuario</header>
-		<form action="newuser2.php" method="GET">
+		<form action="newuser.php" method="POST">
 			<table>
 				<tr>
 					<td>Usuario</td>
@@ -29,9 +29,29 @@
 				<tr>
 					<td>Nombre y Apellido</td>
 					<td><input type="text" id="idNom_Ape" name="nNom_Ape" required value=""></td>
-					<td><input type="submit" name="nSubmit" id="idSubmit" value="Crear"></td>
+					<td><input type="submit" name="nCrear" id="idCrear" value="Crear"></td>
 				</tr>
 			</table>
 		</form>
 	</body>				
 </html>
+<?php
+	if(isset($_POST["nCrear"])){
+		session_start();
+		require 'conexionlogin.php';
+		$usuario = $_POST["nUsuario"];
+		$contrasenia = $_POST["nContrasenia"];
+		$nombre_apellido = $_POST["nNom_Ape"];
+		$nuevo_usuario = "SELECT U.usuario FROM usuarios U WHERE U.usuario = '".$usuario."'";
+		$resultadoQuery = $conexiondb->query($nuevo_usuario);
+		if($resultadoQuery->num_rows > 0){
+			echo "usuario existente";
+		} else {
+			$sql = "INSERT INTO usuarios(nombre_apellido, usuario, contrasenia) VALUES ('".$nombre_apellido."', '".$usuario."', '".$contrasenia."')";
+			if($conexiondb->query($sql) === TRUE){
+				echo "Usuario Creado exitosamente";
+			}
+		}
+		$conexiondb->close();
+	}
+?>

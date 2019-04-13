@@ -82,7 +82,7 @@
         <section>
         <nav>
             <ul>
-            <li><a href="http://localhost/Clase1/newuser.php">Agregar Nuevo Usuario</a></li>
+            <li><a href="http://localhost/Drugstore/newuser.php">Agregar Nuevo Usuario</a></li>
             <li><a href="#">Paris</a></li>
             <li><a href="#">Tokyo</a></li>
             </ul>

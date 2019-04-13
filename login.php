@@ -32,7 +32,6 @@
 			</table>
 			<!--aca se puede ponder codigo php-->
 		</form>
-
 	</body>				
 </html>
 <?php
@@ -48,14 +47,14 @@
 			if($contrasenia == $fila["contrasenia"]){
 				//$_SESSION['logueado'] = true;
 				$_SESSION['usuario'] = $usuario;
-				header("Location: http://localhost/Clase1/main.php");
+				header("Location: http://localhost/Drugstore/main.php");
 			}else{
 				//$_SESSION['logueado'] = false;
-				header("Location: http://localhost/Clase1/login.php?Err=1");
+				header("Location: http://localhost/Drugstore/login.php?Err=1");
 			}
 		}
 		else
-		header("Location: http://localhost/Clase1/login.php?Err=1");
+		header("Location: http://localhost/Drugstore/login.php?Err=1");
 		$conexiondb->close();
 	} 
 	else
@@ -66,8 +65,3 @@
 		}
 	}
 ?>
-
-
-
-
-
