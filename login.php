@@ -30,7 +30,7 @@
 					<td><input type="submit" name="nIngresar" id="idIngresar" value="Ingresar"></td>
 				</tr>
 			</table>
-
+			<!--aca se puede ponder codigo php-->
 		</form>
 
 	</body>				
