@@ -38,8 +38,13 @@ CREATE TABLE IF NOT EXISTS proveedores(
 CREATE TABLE IF NOT EXISTS marcas(
 	id_marca INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
     nombre_marca VARCHAR(20) NOT NULL,
+    habilitada INT(1) NOT NULL,
     PRIMARY KEY(id_marca)
 )ENGINE=INNODB;
+
+INSERT INTO marcas(nombre_marca,habilitada) VALUES ("Arcor",1);
+INSERT INTO marcas(nombre_marca,habilitada) VALUES ("Bagley",1);
+INSERT INTO marcas(nombre_marca,habilitada) VALUES ("Quilmes",0);
 
 CREATE TABLE IF NOT EXISTS articulos(
 	id_articulo INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
