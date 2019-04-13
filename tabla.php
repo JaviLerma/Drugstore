@@ -1,25 +1,22 @@
 <?php
-    i = 1;
-    echo "<table><tr><td>COL1</td><td>COL2</td>";
-    while (i <= $qfilas->num_rows){
-        echo "<table><tr><td>COL1</td><td>COL2</td>";  
+    require 'conexionlogin.php';
+
+    $sqlMarcas = "SELECT * FROM marcas";
+    $resultadoQuery = $conexiondb->query($sqlMarcas);
+    if ($resultadoQuery->num_rows > 0) {
+        echo "<table border='1'>
+        <tr>
+            <td> columna 1 </td>
+            <td> columna 2</td>
+            <td> columna 3</td>
+        </tr>";
+        while($row = $resultadoQuery->fetch_assoc()) {
+            echo "<tr>
+                    <td> ".$row["id_marca"]." </td>
+                    <td> ".$row["nombre_marca"]."</td>
+                    <td> ".$row["habilitada"]."</td>
+                </tr>";
+        }
+        echo "</table>";
     }
-
 ?>
-
-
-<table>
-				<tr>
-					<td>Usuario</td>
-					<td><input type="text" id="idUsuario" name="nUsuario" required value="Ingrese usuario" onclick="this.value='';" onblur="this.value=(this.value=='')?'Ingrese usuario':this.value;"></td>
-					<!--<input type="text" id="idUser" name="nUser" value="Usuario" onclick="this.value='';" onblur="this.value=(this.value=='')?'Usuario':this.value;"></td><td></td>-->
-				</tr>
-				<tr>
-					<td>Contraseña</td>
-					<td><input type="password" id="idContrasenia" name="nContrasenia" required value="****" onclick="this.value='';" onblur="this.value=(this.value=='')?'****':this.value;"></td>
-					
-				</tr>
-				<tr>
-					<td><input type="submit" name="nSubmit" id="idSubmit" value="Ingresar"></td>
-				</tr>
-</table>
