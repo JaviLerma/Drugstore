@@ -4,7 +4,7 @@
     $sqlMarcas = "SELECT * FROM marcas";
     $resultadoQuery = $conexiondb->query($sqlMarcas);
     if ($resultadoQuery->num_rows > 0) {
-        echo "<table border='1'>
+        echo "<table border='2'>
         <tr>
             <td> columna 1 </td>
             <td> columna 2</td>

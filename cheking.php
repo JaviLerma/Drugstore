@@ -4,7 +4,7 @@
 	$usuario = $_GET["nUsuario"];
 	$contrasenia = $_GET["nContrasenia"];
 	$sql = "SELECT U.contrasenia FROM usuarios U Where U.usuario = '".$usuario."'";
-	$resultadoQuery = $conexiondb->query($sql); // que hace?
+	$resultadoQuery = $conexiondb->query($sql);
 	if($resultadoQuery->num_rows > 0){
 		$fila = $resultadoQuery->fetch_assoc();
 		if($contrasenia == $fila["contrasenia"]){

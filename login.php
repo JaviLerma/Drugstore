@@ -14,7 +14,7 @@
 	
 	<body>
 		<header>Iniciar Sesion</header>
-		<form action="cheking.php" method="GET">
+		<form action="login.php" method="GET">
 			<table>
 				<tr>
 					<td>Usuario</td>
@@ -27,14 +27,47 @@
 					
 				</tr>
 				<tr>
-					<td><input type="submit" name="nSubmit" id="idSubmit" value="Ingresar"></td>
+					<td><input type="submit" name="nIngresar" id="idIngresar" value="Ingresar"></td>
 				</tr>
 			</table>
-   		<?php
-       		if(isset($_GET["login"]) && $_GET["login"] == 'false'){
-          		echo "<div style='color:red'>Usuario o contraseña invalido </div>";
-       		}
-     	?>
+
 		</form>
+
 	</body>				
 </html>
+<?php
+	if(isset($_GET["nIngresar"])){
+		session_start();
+		require 'conexionlogin.php';
+		$usuario = $_GET["nUsuario"];
+		$contrasenia = $_GET["nContrasenia"];
+		$sql = "SELECT U.contrasenia FROM usuarios U Where U.usuario = '".$usuario."'";
+		$resultadoQuery = $conexiondb->query($sql);
+		if($resultadoQuery->num_rows > 0){
+			$fila = $resultadoQuery->fetch_assoc();
+			if($contrasenia == $fila["contrasenia"]){
+				//$_SESSION['logueado'] = true;
+				$_SESSION['usuario'] = $usuario;
+				header("Location: http://localhost/Clase1/main.php");
+			}else{
+				//$_SESSION['logueado'] = false;
+				header("Location: http://localhost/Clase1/login.php?Err=1");
+			}
+		}
+		else
+		header("Location: http://localhost/Clase1/login.php?Err=1");
+		$conexiondb->close();
+	} 
+	else
+	if (isset($_GET["Err"])){
+		$error = $_GET["Err"];
+		if($error == 1){
+			echo "<div style='color:red'>Usuario o contraseña invalido </div>";
+		}
+	}
+?>
+
+
+
+
+
