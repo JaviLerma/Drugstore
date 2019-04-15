@@ -1,9 +1,3 @@
-
-
-
-
-
-
     <head>
         <title>Página Principal</title>
         <meta charset="utf-8">
