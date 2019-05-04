@@ -58,6 +58,8 @@ CREATE TABLE IF NOT EXISTS facturas(
 	id_factura INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
     fecha DATE,
     hora TIME,
+	num_factura INT(11),
+	total INT(11),
     PRIMARY KEY(id_factura),
     usuarios_id_usuario INT(11) UNSIGNED NOT NULL,
     clientes_id_cliente INT(11) UNSIGNED NOT NULL,
@@ -67,6 +69,8 @@ CREATE TABLE IF NOT EXISTS facturas(
 
 CREATE TABLE IF NOT EXISTS detalle_facturas(
 	#id_detalle INT(11) UNSIGNED NOT NULL,
+	cantidad INT(11) UNSIGNED NOT NULL,
+	precio INT(111) UNSIGNED NOT NULL,
     facturas_id_factura INT(11) UNSIGNED NOT NULL,
     articulos_id_articulo INT(11) UNSIGNED NOT NULL,
     PRIMARY KEY(facturas_id_factura,articulos_id_articulo),
